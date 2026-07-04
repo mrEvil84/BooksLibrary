@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Book\Infrastructure\Doctrine\Repository;
+namespace App\BookLibrary\Infrastructure\Doctrine\Repository;
 
-use App\Book\Domain\Entity\Book;
-use App\Book\Domain\Repository\BookRepositoryInterface;
+use App\BookLibrary\Domain\Entity\Book;
+use App\BookLibrary\Domain\Repository\BookRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

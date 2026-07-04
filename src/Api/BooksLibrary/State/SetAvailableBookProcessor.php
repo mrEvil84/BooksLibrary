@@ -5,37 +5,34 @@ namespace App\Api\BooksLibrary\State;
 
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProcessorInterface;
-use App\Api\BooksLibrary\Resource\Book;
-use App\BookLibrary\Application\BookRemover;
-use App\BookLibrary\Application\Exception\BookIsBorrowedException;
+use App\Api\BooksLibrary\ResourceDto\SetAvailableBookDto;
+use App\BookLibrary\Application\BookAvailabilitySetter;
 use App\BookLibrary\Application\Exception\BookNotFoundException;
 use App\BookLibrary\Application\Exception\InvalidBookSerialNumberException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * @implements ProcessorInterface<Book, void>
+ * @implements ProcessorInterface<SetAvailableBookDto, void>
  */
-final readonly class DeleteBookProcessor implements ProcessorInterface
+final readonly class SetAvailableBookProcessor implements ProcessorInterface
 {
     public function __construct(
-        private BookRemover $bookRemover,
+        private BookAvailabilitySetter $bookAvailabilitySetter,
     ) {
     }
 
     /**
-     * @param Book $data
+     * @param SetAvailableBookDto $data
      */
     public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): void
     {
-        $serialNumber = $uriVariables['serialNumber'];
-
         try {
-            $this->bookRemover->remove($serialNumber);
+            $this->bookAvailabilitySetter->setAvailable($data->bookSerialNumber);
+        } catch (InvalidBookSerialNumberException $exception) {
+            throw new BadRequestHttpException($exception->getMessage());
         } catch (BookNotFoundException $exception) {
             throw new NotFoundHttpException($exception->getMessage());
-        } catch (InvalidBookSerialNumberException|BookIsBorrowedException $exception) {
-            throw new BadRequestHttpException($exception->getMessage());
         }
     }
 }

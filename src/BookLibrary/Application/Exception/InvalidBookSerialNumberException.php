@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Book\Application\Exception;
+namespace App\BookLibrary\Application\Exception;
 
 use Exception;
 

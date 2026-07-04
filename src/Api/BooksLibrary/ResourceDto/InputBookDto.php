@@ -12,7 +12,7 @@ class InputBookDto
 {
     public function __construct(
         public int $serialNumber,
-        public string $name,
-        public string $description,
+        public string $title,
+        public string $author,
     ) {}
 }

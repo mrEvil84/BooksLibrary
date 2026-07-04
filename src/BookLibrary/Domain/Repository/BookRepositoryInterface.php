@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Book\Domain\Repository;
+namespace App\BookLibrary\Domain\Repository;
 
-use App\Book\Domain\Entity\Book;
+use App\BookLibrary\Domain\Entity\Book;
 
 interface BookRepositoryInterface
 {

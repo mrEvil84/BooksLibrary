@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Book\Application;
+namespace App\BookLibrary\Application;
 
-use App\Book\Application\Exception\BookSerialNumberAlreadyExists;
-use App\Book\Application\Exception\InvalidBookSerialNumberException;
-use App\Book\Domain\Entity\Book;
-use App\Book\Domain\Repository\BookRepositoryInterface;
+use App\BookLibrary\Application\Exception\BookSerialNumberAlreadyExists;
+use App\BookLibrary\Application\Exception\InvalidBookSerialNumberException;
+use App\BookLibrary\Domain\Entity\Book;
+use App\BookLibrary\Domain\Repository\BookRepositoryInterface;
 
 readonly class BookCreator
 {
@@ -39,7 +39,7 @@ readonly class BookCreator
         $book = $this->bookRepository->findBySerialNumber($serialNumber);
 
         if ($book instanceof Book) {
-            throw new BookSerialNumberAlreadyExists('Book serial number ' . $serialNumber . ' already exists');
+            throw new BookSerialNumberAlreadyExists('BookLibrary serial number ' . $serialNumber . ' already exists');
         }
     }
 

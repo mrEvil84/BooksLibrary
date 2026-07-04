@@ -8,9 +8,9 @@ use ApiPlatform\State\ProcessorInterface;
 use App\Api\BooksLibrary\Resource\Book;
 use App\Api\BooksLibrary\ResourceDto\InputBookDto;
 use App\Api\BooksLibrary\ResourceDto\OutputBookDto;
-use App\Book\Application\BookCreator;
-use App\Book\Application\Exception\BookSerialNumberAlreadyExists;
-use App\Book\Application\Exception\InvalidBookSerialNumberException;
+use App\BookLibrary\Application\BookCreator;
+use App\BookLibrary\Application\Exception\BookSerialNumberAlreadyExists;
+use App\BookLibrary\Application\Exception\InvalidBookSerialNumberException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 use Exception;
@@ -42,6 +42,12 @@ final readonly class AddBookProcessor implements ProcessorInterface
            throw new BadRequestHttpException($exception->getMessage());
         }
 
-        return new OutputBookDto($book->getSerialNumber(), $book->getTitle(), $book->getAuthor());
+        return new OutputBookDto(
+            $book->getSerialNumber(),
+            $book->getTitle(),
+            $book->getAuthor(),
+            $book->isBorrowed(),
+            null,
+        );
     }
 }

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Book\Application;
+namespace App\BookLibrary\Application;
 
-use App\Book\Domain\Entity\Book;
-use App\Book\Domain\Repository\BookRepositoryInterface;
+use App\BookLibrary\Domain\Entity\Book;
+use App\BookLibrary\Domain\Repository\BookRepositoryInterface;
 
 readonly class BookLister
 {
