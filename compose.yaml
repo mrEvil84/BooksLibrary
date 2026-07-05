@@ -26,6 +26,7 @@ services:
     volumes:
       - .:/var/www
     command: install
+
   db:
     image: postgres:${DB_VERSION:-10.1}
     restart: always
@@ -37,6 +38,7 @@ services:
       - "5432:5432"
     volumes:
       - ./docker/conf/postgres/:/docker-entrypoint-initdb.d/
+
   db_test:
     image: postgres:${TEST_DB_VERSION:-10.1}
     restart: always

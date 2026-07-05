@@ -48,6 +48,7 @@ final readonly class AddBookProcessor implements ProcessorInterface
             $book->getAuthor(),
             $book->isBorrowed(),
             null,
+            null
         );
     }
 }

@@ -65,7 +65,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "App\\Tests\\": "tests/",
+            "App\\ApiTests\\": "testsApi/"
         }
     },
     "replace": {
@@ -81,7 +82,10 @@
         "symfony/polyfill-php84": "*"
     },
     "scripts": {
-        "unit": "phpunit",
+        "tests": "cd /var/www && APP_ENV=test vendor/bin/phpunit",
+        "api-tests": "cd /var/www && APP_ENV=test vendor/bin/phpunit testsApi",
+        "add-fixtures-test": "php bin/console doctrine:fixtures:load --env=test",
+        "add-fixtures": "php bin/console doctrine:fixtures:load",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
