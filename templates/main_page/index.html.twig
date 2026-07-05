@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Biblioteka{% endblock %}
+
+{% block javascripts %}
+    {{ importmap('main_page') }}
+{% endblock %}
+
+{% block body %}
+    <div class="library-page">
+        <div class="library-container">
+            <div id="book-library-root"></div>
+        </div>
+    </div>
+{% endblock %}

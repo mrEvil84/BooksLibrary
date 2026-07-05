@@ -24,7 +24,13 @@
  */
 return [
     'app' => ['path' => './assets/app.js', 'entrypoint' => true],
+    'main_page' => ['path' => './assets/main_page.js', 'entrypoint' => true],
     '@hotwired/stimulus' => ['version' => '3.2.2'],
     '@symfony/stimulus-bundle' => ['path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js'],
     '@hotwired/turbo' => ['version' => '8.0.23'],
+    'react' => ['version' => '19.2.7'],
+    'react-dom' => ['version' => '19.2.7'],
+    'react-dom/client' => ['path' => './assets/react_shim/react-dom.client.js'],
+    'scheduler' => ['path' => './assets/react_shim/scheduler.index.js'],
+    'htm' => ['version' => '3.1.1'],
 ];
