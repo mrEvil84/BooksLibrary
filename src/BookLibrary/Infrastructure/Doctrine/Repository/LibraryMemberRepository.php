@@ -22,16 +22,4 @@ class LibraryMemberRepository extends ServiceEntityRepository implements Library
     {
         return $this->findOneBy(['identificationNumber' => $identificationNumber]);
     }
-
-    public function save(LibraryMember $libraryMember): void
-    {
-        $this->getEntityManager()->persist($libraryMember);
-        $this->getEntityManager()->flush();
-    }
-
-    public function remove(LibraryMember $libraryMember): void
-    {
-        $this->getEntityManager()->remove($libraryMember);
-        $this->getEntityManager()->flush();
-    }
 }
