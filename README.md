@@ -7,7 +7,7 @@
 ```docker compose exec -it php bin/console doctrine:migrations:migrate```
 ```docker compose exec -it php bin/console doctrine:migrations:migrate --env=test```
 
-## Execute fixtures:
+## Load fixtures:
 ```docker compose exec -it php add-fixtures```
 ```docker compose exec -it php add-fixtures-test```
 
