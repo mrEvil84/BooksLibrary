@@ -15,7 +15,10 @@
 ```http://localhost:8080/api```
 
 ## Execute unit and api tests:
-```docker compose exec -it composer tests```
+```docker compose exec -it php composer tests```
+
+## Execute api tests
+```docker compose exec -it php composer api-tests```
 
 
 
