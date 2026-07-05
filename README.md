@@ -1,20 +1,21 @@
-How to set up on Linux (tested on Ubuntu 26.04 lts)
--- Set up environment
-docker compose up -d
+# How to set up on Linux (tested on Ubuntu 26.04 lts)
 
---- Do migrations
-docker compose exec -it php bin/console doctrine:migrations:migrate
-docker compose exec -it php bin/console doctrine:migrations:migrate --env=test
+## Set up environment
+```docker compose up -d```
 
---- Execute fixtures:
-docker compose exec -it php add-fixtures
-docker compose exec -it php add-fixtures-test
+## Do migrations
+```docker compose exec -it php bin/console doctrine:migrations:migrate```
+```docker compose exec -it php bin/console doctrine:migrations:migrate --env=test```
 
--- Check api platform url to test api:
-http://localhost:8080/api
+## Execute fixtures:
+```docker compose exec -it php add-fixtures```
+```docker compose exec -it php add-fixtures-test```
 
---Execute unit and api tests:
-docker compose exec -it composer tests
+## Check api platform url to test api:
+```http://localhost:8080/api```
+
+## Execute unit and api tests:
+```docker compose exec -it composer tests```
 
 
 
