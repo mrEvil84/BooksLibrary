@@ -8,8 +8,8 @@
 ```docker compose exec -it php bin/console doctrine:migrations:migrate --env=test```
 
 ## Load fixtures:
-```docker compose exec -it php add-fixtures```
-```docker compose exec -it php add-fixtures-test```
+```docker compose exec -it php composer add-fixtures```
+```docker compose exec -it php composer add-fixtures-test```
 
 ## Check api platform url to test api:
 ```http://localhost:8080/api```

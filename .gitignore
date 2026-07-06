@@ -9,6 +9,11 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
+###> docker/postgres ###
+/.data_book_library_db/
+/.data_book_library_db_test/
+###< docker/postgres ###
+
 ###> phpunit/phpunit ###
 /phpunit.xml
 /.phpunit.cache/
